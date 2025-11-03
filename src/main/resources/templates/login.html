@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:xmls="http://www.w3.org/1999/xhtml"
+      xmls:layout="http://www.ultraq.net/thymeleaf/layout" xmls:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="icon" type="imagem/png" href="/img/ic_clube.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/js/fontawesome-free/css/all.min.css">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="/js/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/css/adminlte.min.css">
+
+    <link rel="stylesheet" href="/js/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="/js/toastr/toastr.min.css">
+
+    <style>
+        .fundo-pagina {
+            background-image: url(/img/fundo.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center top;
+        }
+    </style>
+
+</head>
+<body class="hold-transition login-page fundo-pagina">
+<div class="login-box">
+    <div class="login-logo">
+        <!-- <img src="/img/logo_marvin_chat.png" width="96px" height="96px"/> -->
+    </div>
+    <!-- /.login-logo -->
+    <div class="card" style="border-radius: 30px;">
+        <div class="card-body login-card-body"
+             style="border-radius: 30px; box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5) !important;background-color: #fffcf7;">
+            <p class="login-box-msg">preencha os dados para logar</p>
+
+
+            <div class="input-group mb-3">
+                <input type="email" class="form-control" id="email" placeholder="Email">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-envelope"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="password" class="form-control" id="senha" placeholder="Senha">
+                <div class="input-group-append">
+                    <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+
+                </div>
+                <div class="col-4">
+                    <button onclick="checar_login()" style="color:#018bc6" class="btn btn-outline-secondary btn-block">
+                        Logar
+                    </button>
+                </div>
+            </div>
+
+
+            <p class="mb-1">
+                <a href="#" data-toggle="modal"
+                   data-target="#recuperar_senha" style="color:#018bc6">recuperar senha</a>
+            </p>
+            <p class="mb-0">
+                <a href="/chat/criar_login" style="color:#018bc6" class="text-center">novo usuário</a>
+            </p>
+        </div>
+        <!-- /.login-card-body -->
+    </div>
+</div>
+
+<div class="modal fade" id="aguardar_email" data-backdrop="static" tabindex="-1" role="dialog"
+     aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+
+        <div class="modal-content">
+            <div class="modal-body">
+                <img width="100%" src="/img/ic_aguarde.gif"/>               
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="recuperar_senha" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="autenticacao_modal">Recuperar Senha</h5>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">             
+                <div class="form-group">
+                    <div class="input-group"
+                         data-target-input="nearest">
+                        <input type="email"
+                               placeholder="digite seu email" id="email_recupera"
+                               name="email_recupera"
+                               class="form-control"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info">
+                    <span title="recuperar" onclick="recuperar_senha()" aria-hidden="true">confirmar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- /.login-box -->
+
+<!-- jQuery -->
+<script src="/js/plugin/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<script src="/js/plugin/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/js/plugin/adminlte.min.js"></script>
+
+<script src="/js/plugin/sweetalert2/sweetalert2.min.js"></script>
+
+<script src="/js/plugin/toastr/toastr.min.js"></script>
+
+<script src="/js/plugin/login/lg.js"></script>
+
+<script src="/js/plugin/usuarios/recupera_senha.js"></script>
+</body>
+</html>
