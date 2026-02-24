@@ -26,6 +26,7 @@ availability checking, user authentication and administrative control.
 - Spring Boot
 - Spring Data JPA
 - REST API
+- Web Socket
 
 ### Frontend
 - HTML
